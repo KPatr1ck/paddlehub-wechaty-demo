@@ -1,0 +1,3 @@
+paddlepaddle-gpu >= 2.0.0
+paddlehub >= 2.0.4
+wechaty ~= 0.7dev16
