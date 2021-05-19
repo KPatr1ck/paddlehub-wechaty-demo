@@ -72,4 +72,5 @@ model.context = deque(maxlen=model.max_turn)  # 对话上下文的存储队列
 
 脚本成功运行后，所登陆的账号即可作为一个Chatbot，下图右侧的内容由Chatbot生成和回复。
 
-[![gtTHZn.md.jpg](https://z3.ax1x.com/2021/05/10/gtTHZn.md.jpg)](https://imgtu.com/i/gtTHZn)
+[![gIZF5F.md.jpg](https://z3.ax1x.com/2021/05/19/gIZF5F.md.jpg)](https://imgtu.com/i/gIZF5F)
+[![gIZiUU.md.jpg](https://z3.ax1x.com/2021/05/19/gIZiUU.md.jpg)](https://imgtu.com/i/gIZiUU)
