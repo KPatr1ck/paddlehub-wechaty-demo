@@ -2,6 +2,11 @@
 
 本例子展示一个基于 PaddleHub + Wechaty 的微信闲聊机器人demo。通过Wechaty获取微信接收的消息，然后使用PaddleHub的`plato-mini`模型根据对话的上下文生成新的对话文本，最终以微信消息的形式发送，实现闲聊的交互。
 
+## 风险提示
+
+本项目采用的api为第三方——Wechaty提供，**非微信官方api**，用户需承担来自微信方的使用风险。  
+在运行项目的过程中，建议尽量选用**新注册的小号**进行测试，不要用自己的常用微信号。
+
 ## Wechaty
 
 关于Wechaty和python-wechaty，请查阅以下官方repo：
