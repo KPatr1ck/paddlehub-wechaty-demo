@@ -13,13 +13,14 @@
 - [Wechaty](https://github.com/Wechaty/wechaty)
 - [python-wechaty](https://github.com/wechaty/python-wechaty)
 - [python-wechaty-getting-started](https://github.com/wechaty/python-wechaty-getting-started/blob/master/README.md)
+- [paddlehub-task_mgr_bot](https://github.com/yiakwy/paddlehub-task_mgr_bot/blob/master/README.md)
 
 
 ## 环境准备
 
 - 系统环境：Linux, MacOS, Windows
 -  python3.7+
-
+- Docker
 
 ## 安装和使用
 
@@ -43,15 +44,39 @@
    hub install plato-mini==1.0.0
    ```
 
-3. Set token for your bot
+3. 设置微信接口服务口令
+
+    支持微信iPad协议, 可以通过Padlocal和Paimon服务并设置服务口令，让客户端对接微信
 
     在当前系统的环境变量中，配置以下与`WECHATY_PUPPET`相关的两个变量。
     关于其作用详情和TOKEN的获取方式，请查看[Wechaty Puppet Services](https://wechaty.js.org/docs/puppet-services/)。
+
     ```shell
     export WECHATY_PUPPET=wechaty-puppet-service
     export WECHATY_PUPPET_SERVICE_TOKEN=your_token_at_here
     ```
-    
+
+    - PadLocal  
+    PadLocal是目前最为强大的puppet服务，因为目前其不支持wechaty-python，我们可以通过搭建wechaty代理服务器，使得wechaty-python客户端正常响应：
+    ```shell
+    # 设置代理服务器段鸥
+    mv env.sh.bak env.sh
+    source env.sh
+    ```
+
+    ```python
+    # 启动wechaty-es6 padlocal代理服务器:
+    bash scripts/wechaty_token_gateway_padlocal.sh
+
+    # 若非公网，修改 env.sh EndPoint 地址到局域网地址端口
+    export WECHATY_PUPPET_SERVICE_ENDPOINT="YOUR_DOCKER_PROXY_SERVER_ENDPOINT"
+
+    # 代理服务器会自动发现
+    # Docker镜像代理服务器运行后，可以通过浏览器复制qr码地址，用微信移动端扫码登陆，登陆成功后则可收发消息。
+
+    ```
+
+    - Paimon  
     [Paimon](https://wechaty.js.org/docs/puppet-services/paimon/)的短期TOKEN经测试可用，其他TOKEN请自行测试使用。
 
 4. Run the bot
